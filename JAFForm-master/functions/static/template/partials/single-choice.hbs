@@ -1,0 +1,14 @@
+<span>{{question}}:</span>&nbsp;
+<span>{{value}}</span>
+
+{{#each sections as |section|}}
+  {{#if (isSectionVisible../valuesection)}}
+    <ul class="section">
+      {{#each section.items as |sectionItem|}}
+        <li class="section-item">
+          {{> (lookup sectionItem 'type') sectionItem}}
+        </li>
+      {{/each}}
+    </ul>
+  {{/if}}
+{{/each}}

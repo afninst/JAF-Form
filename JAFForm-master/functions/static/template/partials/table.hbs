@@ -1,0 +1,23 @@
+<div>
+  <br>
+  <p><b><u>{{question}}:</u></b></p>
+  <br>
+  <table style="width: 108%" align="center">
+    <thead>
+      <tr>
+        {{#each children}}
+          <th>{{question}}</th>
+        {{/each}}
+      </tr>
+    </thead>
+    <tbody>
+      {{#each value as |val|}}
+        <tr>
+          {{#each ../children}}
+            <td>{{lookup val controlName}}</td>
+          {{/each}}
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

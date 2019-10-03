@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Form PDF</title>
+
+  <style>
+   @page {
+     size: A4;
+   }
+   * {
+     box-sizing: border-box;
+   }
+   html {
+     width: 210mm;
+     height: 297 mm;
+     font-family: PT Sans, sans-serif;
+     font-size: 10pt;
+     font-weight: normal;
+     line-height: 1.5;
+     -webkit-print-color-adjust: exact;
+   }
+ 
+   body {
+     height: 100%;
+     margin: 0;
+     padding: 5mm;
+   }
+
+   ul {
+    padding: 0;
+    list-style: none;
+   }
+
+   p {
+     margin: 0;
+   }
+   
+
+     .td2 {
+     border: 0px solid black;
+     text-align: right;
+     
+   }
+
+   .table1 {
+     border: 0px solid black;
+     text-align: center;
+   }
+
+    .td1 {
+     border: 0px solid black;
+     text-align: left;
+     
+   }
+
+   table {
+     border: 1px solid black;
+     border-collapse: collapse;
+     text-align: center;
+   }
+
+   th {
+     font-weight: normal;
+     border: 1px solid black;
+     text-align: center;
+   }
+
+   td {
+     border: 1px solid black;
+     text-align: center;
+   }
+
+    .img1{
+        content: "";
+        position: relative;
+        display: block;
+        background-image: url(http://www.simedarbyindustrial.com/clients/simedarby_industrial/assets/contentMS/img/template/logo-industrial.jpg);
+        width: 30%;
+        height: 30%;
+        left: 150%;
+        top: -10px;
+        
+      }   
+   .page-header {
+     margin-bottom: 2mm;
+     text-align: center;
+   }
+
+   .form-item {
+     margin-bottom: 2mm;
+   }
+
+   .section {
+     border: 1 px dotted;
+   }
+
+   .section-item {
+     margin-bottom: 2mm;
+   }
+  </style>
+</head>
+<body>
+
+    <table id="table1" class="table1" border="">
+      <tr >
+        <td id="td1" class="td1" align="left" border="">
+            <p>Sime Darby Industrial Sdn Bhd.</p>
+            {{!-- <p>Kompleks Kejuruteraan Tractors,</p>
+            <p>Sime Darby Industrial Sdn Bhd.</p>
+            <p>Sime Darby Industrial Sdn Bhd.</p>
+            <p>G.P.O Box 12465, 50778 Kuala Lumpur, Malaysia</p>
+            <p>Tel: 03-8068 8000 Fax:03-8068 8080</p> --}}
+        </td>
+        <td id="td2" class="td2" align="right" border="">
+          <img class="img1" src="http://www.simedarbyindustrial.com/clients/simedarby_industrial/assets/contentMS/img/template/logo-industrial.jpg" >
+        </td>
+      </tr>
+    </table>
+
+  <header class="page-header">
+    <h2><u>{{formName}}</u></h2>
+  </header>
+
+  <main>
+    {{!-- <table> 
+      <tr >
+              <td>
+                <p><pre></pre>CUSTOMER:{{customerName}}</pre>&nbsp;<pre>JOB NO:{{projectID}}</pre>&nbsp;<pre>DATE:{{date}}</pre>&nbsp;<pre>SERIAL NO:{{equipmentSerial}}</pre>&nbsp;<pre>MODEL:{{value.equipmentModel}}</pre>&nbsp;<pre>SMU:{{assetSMU}}</pre>&nbsp;<pre>WORKSITE:{{worksite}}</pre></p>
+              </td>
+      </tr>
+	</table> --}}
+    <ul>
+      {{#each data as |formItem|}}
+        <li class="form-item">
+          {{> (lookup formItem 'type') formItem}}
+        </li>
+      {{/each}}
+    </ul>
+  </main>
+</body>
+</html>

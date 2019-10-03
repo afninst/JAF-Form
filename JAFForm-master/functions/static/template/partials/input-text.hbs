@@ -1,0 +1,15 @@
+{{#isNotArray value}}
+  <span>{{question}}:</span>&nbsp;
+  <span>{{value}}</span>
+{{/isNotArray}}
+
+{{#isArray value}}
+  <div>
+    <p>{{question}}:</p>
+    <ul>
+      {{#each value}}
+        <li>{{this.value}}</li>
+      {{/each}}
+    </ul>
+  </div>
+{{/isArray}}
